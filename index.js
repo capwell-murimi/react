@@ -5,7 +5,9 @@ window.onload   =   ()  =>  {
     const ints  =   [1, 2, 3]
     const   anotherArray=[]
 
-    anotherArray.push(React.createElement("li", {key:ints[0]},ints[0]))
+    anotherArray.push(React.createElement("li", (params) => {
+            { key: ints[0]}  ints[0]
+        }))
     anotherArray.push(React.createElement("li", {key:ints[1]},ints[1]))
     anotherArray.push(React.createElement("li", {key:ints[2]},ints[2]))
 
