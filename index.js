@@ -1,10 +1,11 @@
 window.onload   =   ()  =>  {
     const   rootElement =   document.getElementById("root")
-    const   ints   =   [1, 2, 3]  
-    
-    ints.forEach(i  =>  {
-        let  li = document.createElement("li")
-        li.innerHTML = i
-        rootElement.appendChild(li)
-    })
+    const   root    =   ReactDOM.createRoot(rootElement) 
+
+    const ints  =   [1, 2, 3]
+    const   anotherArray    =   []
+
+    anotherArray.push(React.createElement("li", {key:ints[0]}, ints[0]))
+
+    root.render(anotherArray)
 }
