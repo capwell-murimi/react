@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import {useState} from 'react'
+export  default function App() {
+  function  ListItems({ints , addValue}) {
+    return(
+      <>
+      <button onClick={addValue}>Add item</button>
+      {
+        ints.map(id => {
+          return  (
+            <li key={id}>{id}</li>
+          )
+        })
+      }
+      </>
+    )
+  }
+  //const ints = [1,2,3]
+  const [ints, setInts] = useState([1,2,3])
+  function addValue ()
+  {
+    const newVal = Math.max(...ints) + 1
+    setInts([...ints,newVal])
+  }  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          please  Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ul>
+     <ListItems ints={ints} addValue = {addValue}/>
+    </ul>
+  )
 }
-
-export default App;
